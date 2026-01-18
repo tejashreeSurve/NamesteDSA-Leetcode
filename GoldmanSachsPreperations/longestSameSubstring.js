@@ -22,7 +22,7 @@ function longestSameSubstring(s) {
     console.log(max);
 }
 
-longestSameSubstring("aaabbbb");
+longestSameSubstring("aaabbhhhhhbcca");
 
 
 // chatgpt more easy way did some refactoring

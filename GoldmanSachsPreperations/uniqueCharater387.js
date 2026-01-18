@@ -17,7 +17,8 @@ var firstUniqChar = function (s) {
 
 };
 
-firstUniqChar("loveleetcode");
+const an = firstUniqChar("loveleetcode");
+// console.log(an)
 
 
 // chatgpt solution
@@ -38,4 +39,19 @@ function refactore(s) {
 }
 
 
-console.log(refactore("leetcode"))
+
+
+function repeat(s) {
+    let arr = new Array(26).fill(0);
+    for (let char of s) {
+        arr[char.charCodeAt(0) - 97]++;
+    }
+    
+    for (let char of s) {
+        if (arr[char.charCodeAt(0) - 97] === 1) return char;
+    }
+
+    return -1;
+}
+
+console.log(repeat("loveleetcode")) // l
