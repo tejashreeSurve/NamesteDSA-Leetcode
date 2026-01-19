@@ -1,5 +1,21 @@
 
 
+// Smallest Missing Positive Number
+// Problem Statement
+// Given an array of integers (which may contain negative numbers, zeros, and duplicates), find and return the smallest positive integer (> 0) that is not present in the array.
+
+// Sample Input & Output
+// Example 1
+
+// Input: [1, 2, 0] Output: 3
+// Example 2
+
+// Input: [3, 4, -1, 1] Output: 2
+// Example 3
+
+// Input: [7, 8, 9, 11] Output: 1
+
+
 // with Time complexcity - O(n), spaceCompexcity = O(n)
 function smalllestInterger(arr) {
     let set = new Set(arr);

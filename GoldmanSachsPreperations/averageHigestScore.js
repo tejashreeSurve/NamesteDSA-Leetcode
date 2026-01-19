@@ -4,7 +4,25 @@
 // 2. remove the avarage
 // 3. return the higest number
 
-// 1.
+// Highest Average Score
+// Problem Statement
+// You are given a list of records where each record contains a name and a score (as a string).
+// Each name may appear multiple times with different scores.
+// Calculate the average score for each person and return the highest average score.
+// If multiple people have the same highest average, return that average value.
+
+// Sample Input & Output
+// Example 1
+
+// Input: [ ["Bobby", "87"], ["Charles", "100"], ["Eric", "64"], ["Charles", "22"] ] Output: 87
+// Explanation:
+
+// Bobby → average = 87
+
+// Charles → average = (100 + 22) / 2 = 61
+
+// Eric → average = 64
+// Highest average = 87
 const data = [
   ["Charles", 87],
   ["Bobby", 100],

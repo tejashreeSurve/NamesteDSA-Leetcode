@@ -1,6 +1,24 @@
 
+// Median of Two Sorted Arrays
+// Problem Statement
+// Given two sorted arrays Arr1 and Arr2, find the median of the combined sorted array.
+// You must provide the most optimized solution in terms of time and space complexity.
+
+// Sample Input & Output
+// Example 1
+
+// Input: Arr1 = [1, 3], Arr2 = [2, 4] Output: 2.5
+// Example 2
+
+// Input: Arr1 = [1, 2], Arr2 = [3] Output: 2
+// Example 3
+
+// Input: Arr1 = [1], Arr2 = [2, 3, 4] Output: 2.5
+
+
+
 function findMedianSortedArrays(arr1, arr2) {
-        let n1 = arr1.length;
+    let n1 = arr1.length;
     let n2 = arr2.length;
     if (n1 > n2) {
         return findMedianSortedArrays(arr2, arr1);;
