@@ -31,7 +31,7 @@ function search(arr,target) {
         let m = s + Math.floor((e - s) / 2);
         if (arr[m] === target) return m;
         if (arr[m] >= arr[s]) {
-            if (target < arr[m] && target <= arr[s]) e = m - 1;
+            if (target < arr[m] && target >= arr[s]) e = m - 1;
             else s = m + 1;
         } else {
             if (target > arr[m] && target <= arr[e]) s = m + 1;

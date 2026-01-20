@@ -59,3 +59,5 @@ var lengthOfLastWordchatgpt = function (s) {
 
     return count;
 };
+
+
