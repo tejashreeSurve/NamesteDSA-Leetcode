@@ -31,7 +31,6 @@ function correct(arr) {
    
     let n = arr.length;
     let stack = [];
-    let stackN = stack.length;
     let result = new Array(n).fill(-1);
     for (let i = 0; i < n; i++){
         while(stack.length > 0 && arr[i] > arr[stack[stack.length - 1]]){
