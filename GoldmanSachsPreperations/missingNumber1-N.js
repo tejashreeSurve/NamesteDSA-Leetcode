@@ -16,8 +16,6 @@
 
 
 
-
-
 function missingNumber(arr) {
     let s = 0;
     let e = arr.length - 1;

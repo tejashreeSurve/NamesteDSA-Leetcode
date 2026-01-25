@@ -15,3 +15,21 @@ var findPeakElement = function (nums) {
     }
     return s;
 };
+
+
+let findPeakSecondWay = function (nums) {
+    let s = 0;
+    let e = arr.length -1;
+
+    while(s<=e){
+      let mid = s + Math.floor((e-s)/2);
+      if(arr[mid]> arr[mid+1] && arr[mid] > arr[mid-1]) return mid;
+      if(arr[mid]< arr[mid+1]){
+        s = mid+1;
+      }else{
+        e = mid-1;
+      }
+    }
+
+    return s;
+}

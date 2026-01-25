@@ -25,7 +25,6 @@ function findIndex(arr, x) {
     while (s <= e) {
         let m = Math.floor((e + s) / 2);
         if (arr[m] === x) {
-            console.log(m)
             return m;
         } else if (arr[m] < x) {
             s = m + 1;
