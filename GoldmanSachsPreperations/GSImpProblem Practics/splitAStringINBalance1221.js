@@ -1,0 +1,66 @@
+
+/*
+1221. Split a String in Balanced Strings
+
+Balanced strings are those that have an equal quantity of 'L' and 'R' characters.
+
+Given a balanced string s, split it into some number of substrings such that:
+
+Each substring is balanced.
+Return the maximum number of balanced strings you can obtain.
+
+
+Example 1:
+
+Input: s = "RLRRLLRLRL"
+Output: 4
+Explanation: s can be split into "RL", "RRLL", "RL", "RL", each substring contains same number of 'L' and 'R'.
+Example 2:
+
+Input: s = "RLRRRLLRLL"
+Output: 2
+Explanation: s can be split into "RL", "RRRLLRLL", each substring contains same number of 'L' and 'R'.
+Note that s cannot be split into "RL", "RR", "RL", "LR", "LL", because the 2nd and 5th substrings are not balanced.
+Example 3:
+
+Input: s = "LLLLRRRR"
+Output: 1
+Explanation: s can be split into "LLLLRRRR".
+
+*/
+
+// time complexcity = O(n)
+// space complexcity = O(1)
+var balancedStringSplit = function(s) {
+    let c = 0;
+    let i = 0;
+    let rCount = 0;
+    let lCount = 0;
+
+    while(i<s.length){
+        if(s[i] === "R") rCount++;
+        if(s[i] === "L") lCount++;
+        if(rCount === lCount){
+            c++;
+            rCount = 0;
+            lCount = 0;
+        }
+        i++;
+    }
+    return c;
+};
+
+// other
+
+function balancedString(s) {
+    let c = 0;
+    let result = 0;
+    let i = 0;
+    while (i < s.length) {
+        if (s[i] === "R") c++;
+        else c--;
+        if (c === 0) result++;
+        i++;
+    }
+    return result;
+}

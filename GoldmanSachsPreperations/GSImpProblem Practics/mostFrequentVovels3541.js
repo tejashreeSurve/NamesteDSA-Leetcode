@@ -48,7 +48,8 @@ var maxFreqSum = function(s) {
     for (let char of s) {
         map.set(char, (map.get(char) || 0) + 1);
     }
-    for (let [key,value] of map) {
+    for (let [key, value] of map) {
+        // "aeiou".includes(key)
         if (key === "a" || key === "e" || key === "i" || key === "o" || key === "u") {
             maxVovel = Math.max(value, maxVovel);
         } else {
