@@ -73,3 +73,34 @@ lb.reset(1);
 lb.addScore(2, 51);
 
 console.log(lb.top(3)); // 197
+
+function Leaderboard2() {
+    this.scores = new Map();
+
+    this.addScore = function(playerId, score){
+        this.scores.set(playerId, (this.scores.get(playerId)||0)+ score);
+    }
+    this.top = function (k) {
+         const values = [...this.scores.values()].sort((a, b) => b - a);
+        console.log(values);
+
+        let total = 0;
+        for (let i = 0; i<k; i++){
+            total += values[i];
+        }
+
+        return total; 
+    }
+
+}
+
+let l = new Leaderboard2();
+l.addScore(1, 45);
+l.addScore(2, 56);
+l.addScore(3, 39);
+l.addScore(4, 51);
+l.addScore(5, 4);
+
+const ans = l.top(2);
+console.log(l.scores);
+console.log(ans);
