@@ -33,6 +33,20 @@ Output: [2,1,3]
  */
 
 // work fine =============
+
+
+// ------------------recursion-----------------------------
+var swapPairs = function (head) {
+    if (!head || !head.next) return head;
+
+    let l = head;
+    let r = head.next;
+
+    l.next = swapPairs(r.next);
+    r.next = l;
+    return r;
+    
+}
 // time compelxcity = O(n);
 // space complexcity = O(1);
 
