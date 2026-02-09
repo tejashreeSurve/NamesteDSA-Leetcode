@@ -38,3 +38,25 @@ function removeDuplicateEasy(arr) {
 }
 
 removeDuplicateEasy(arr);
+
+
+// second solution
+// time compexcity = O(n)
+// space complexcity = O(1)
+var removeDuplicates = function(arr) {
+     let j = 0;
+    let i = j+1;
+    while(i< arr.length){
+        if(arr[i]===arr[j]){
+            i++;
+        }else{
+            if(i !== j+1){
+                arr[j+1] = arr[i]
+            }
+            j++;
+            i++;
+        }
+    }
+
+    return j+1;
+};

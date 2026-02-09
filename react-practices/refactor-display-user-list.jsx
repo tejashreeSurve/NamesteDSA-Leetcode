@@ -17,7 +17,7 @@ function useFetchData() {
                 setData(json);
                 setError(null);
             } catch (error) {
-                if (error.namep === "AbortError") {
+                if (error.name === "AbortError") {
                     console.log('Fetch aborted');
                 } else {
                     setError(error.message);
