@@ -37,6 +37,49 @@ Input: root = [1]
 Output: [1]
  */
 
+
+// using Iterator method using two stack
+function postOrderIteratorUsing1Stack(root) {
+    if(!root) return [];
+    let s1 = [root];
+    let s2 = [];
+    let curr = null;
+    while (s1.length) {
+        curr = s1.pop();
+        s2.push(curr.val);
+        curr.left && s1.push(curr.left);
+        curr.right && s1.push(curr.right);
+    }
+
+    return s2.reverse();
+}
+
+// using Iterator method using one stack
+function postOrderIteratorUsing2Stack(root) {
+    if (!root) return [];
+    let stack = [];
+    let ans = [];
+    let curr = root;
+    let lastVisited = null;
+    while (stack.length || curr) {
+        while (curr) {
+            stack.push(curr);
+            curr = curr.left;
+        }
+
+        let peekVal = stack[stack.length - 1];
+        if (peekVal.right && peekVal.right !== lastVisited) {
+            curr = peekVal.right;
+        } else {
+            ans.push(peekVal.val);
+            lastVisited = stack.pop();
+       
+        }
+    }
+
+    return ans;
+}
+
 var postorderTraversal = function(root) {
     let ans=[];
     function traversal(curr){
