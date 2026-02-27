@@ -75,3 +75,40 @@ var inorderTraversal = function(root) {
 
     return ans;
 };
+
+//--------------------------practices----------------------
+// inorder - left - root - right
+function practiceRecursive(root) {
+    if (!root) return [];
+    const ans = [];
+    
+    const traversal = (curr) => {
+        if (!curr) return;
+        traversal(curr.left);
+        ans.push(curr.val);
+        traversal(curr.right);
+    }
+
+    traversal(root)
+    return ans;
+}
+
+// iterative
+
+function practicesIterative(root) {
+    if (!root) return [];
+    const ans = [];
+    let curr = root;
+    let stack = [];
+    while (curr || stack.length) {
+        while (curr) {
+            stack.push(curr);
+            curr = curr.left;
+        }
+        curr = stack.pop();
+        ans.push(curr.val);
+        curr = curr.right;
+    }
+
+    return ans;
+}

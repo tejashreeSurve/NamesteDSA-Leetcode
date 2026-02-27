@@ -91,3 +91,20 @@ var postorderTraversal = function(root) {
     traversal(root);
     return ans;
 };
+
+// ---------------------------------------practices------------------------------------
+// post order - Left - right - root
+function practicesPostOrder(root) {
+    if (!root) return [];
+    const ans = [];
+    const traversal = (curr) => {
+        if (!curr) return;
+        traversal(curr.left);
+        traversal(curr.right);
+        ans.push(curr.val);
+
+    }
+
+    traversal(root);
+    return ans;
+}

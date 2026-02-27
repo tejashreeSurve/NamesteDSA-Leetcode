@@ -64,3 +64,35 @@ var preorderTraversalIterator = function (root) {
 
     return ans;
 }
+
+
+// practices
+// preorder - root  - left - right
+function practicesPreorder(root) {
+    let ans = [];
+    if (!root) return ans;
+    var traversal = (curr) => {
+        if (!curr) return;
+        ans.push(curr.val);
+        traversal(curr.left);
+        traversal(curr.right);
+    }
+    traversal(root)
+    return ans;
+}
+
+// iterative & non recursive
+
+function nonRecursive(root) {
+    if (!root) return [];
+    let ans = [];
+    let s = [root];
+    while (s.length) {
+        let curr = s.pop();
+        ans.push(curr.val);
+        curr.right && s.push(curr.right);
+        curr.left && s.push(curr.left);
+    }
+
+    return ans;    
+}
