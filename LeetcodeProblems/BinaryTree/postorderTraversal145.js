@@ -108,3 +108,43 @@ function practicesPostOrder(root) {
     traversal(root);
     return ans;
 }
+// 1 stack
+function iterative(root) {
+    if (!root) return [];
+    let s1 = [root];
+    let s2 = [];
+    while (s1.length) {
+        let curr = s1.pop();
+        s2.push(curr.val);
+        curr.left && s1.push(curr.left);
+        curr.right && s1.push(curr.right);
+    }
+
+    return s2.reverse();
+}
+
+// 2 stack
+
+function interativeStack2(root) {
+    if (!root) return [];
+    let s = [];
+    let ans = [];
+    let curr = root;
+    let last = null;
+    while (curr|| s.length) {
+        while (curr) {
+            s.push(curr);
+            curr = curr.left;
+        }
+        let peek = s[s.length - 1];
+        if (peek.right && last !== peek.right) {
+            curr = peek.right;
+            
+        } else {
+            ans.push(curr.val);
+            last = s.pop();
+        }
+    }
+
+    return ans;
+}
