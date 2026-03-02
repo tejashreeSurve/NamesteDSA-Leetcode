@@ -53,3 +53,23 @@ var levelOrder = function(root) {
 
     return ans;
 };
+
+//------------------pratices-------------------
+
+function iteravtive(root) {
+    if (!root) return [];
+    let q = [root];
+    let ans = [];
+    while (q.length) {
+        let level = [];
+        let len = q.length;
+        for (let i = 0; i < len; i++){
+            let curr = q.shift();
+            level.push(curr.val);
+            curr.left && q.push(curr.left);
+            curr.right && q.push(curr.right);
+        }
+        ans.push(level);
+    }
+    return ans;
+}
