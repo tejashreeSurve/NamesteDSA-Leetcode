@@ -40,3 +40,19 @@ var maxDepth = function(root) {
 
     return 1+ Math.max(maxLeft, maxRight);
 };
+
+
+//---------------------------------practices-----------------------------
+// top  down  
+function maxDepth2(root) {
+    let maxDepth = 0;
+
+    var traversal = (curr, level) => {
+        maxDepth = Math.max(maxDepth, level);
+        curr.left && traversal(curr.left, level + 1);
+        curr.right && traversal(curr.right, level + 1);
+    }
+    traversal(root, 1);
+
+    return maxDepth;
+}
