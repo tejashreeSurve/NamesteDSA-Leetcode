@@ -56,3 +56,14 @@ function maxDepth2(root) {
 
     return maxDepth;
 }
+
+
+// bottom up approach
+function maxDepthBottom(root) {
+    if (!root) return 0;
+    let left = maxDepthBottom(root.left);
+    let right = maxDepthBottom(root.right);
+
+    return 1 + Math.max(left, right);
+
+}
