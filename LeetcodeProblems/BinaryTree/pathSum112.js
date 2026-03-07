@@ -69,3 +69,28 @@ var hasPathSum = function(root, targetSum) {
     return ans;    
 
 };
+
+//------------------------------------------------
+
+// top down approach
+function targetSum(root,target) {
+    if (!root) return false;
+    let ans = false;
+
+    const traversal = (curr, sum) => {
+        let newSum = sum + curr.val;
+        if (!curr.left && !curr.right) {
+            if (newSum === target) {
+                ans = ans || true;
+            }
+        }
+        curr.left && traversal(curr.left, newSum);
+        curr.right && traversal(curr.right, newSum);
+
+    }
+
+    traversal(root, 0);
+
+
+    return ans;
+}
