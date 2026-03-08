@@ -51,6 +51,15 @@ var isSymmetric = function (root) {
 //-------------------------------practices
 
 
-function isSymmetric() {
+function isSymmetric(root) {
+
+    const isSy = (left, right) => {
+        if (!left && !right) return true;
+
+        if (!left || !right) return false;
+
+        return left.val === right.val && isSy(left.left, right.right ) && isSy(left.right, right.left);
+    }
     
+    return isSy(root.left, root.right);
 }
