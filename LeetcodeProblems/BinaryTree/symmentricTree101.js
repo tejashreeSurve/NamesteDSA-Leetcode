@@ -47,3 +47,10 @@ var isSymmetric = function (root) {
 
     return true;
 }
+
+//-------------------------------practices
+
+
+function isSymmetric() {
+    
+}
