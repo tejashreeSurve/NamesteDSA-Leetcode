@@ -34,8 +34,8 @@ var isSymmetric = function (root) {
 var isSymmetric = function (root) {
     const queue = [root.left, root.right];
     while (queue.length) {
-        q1 = queue.shift();
-        q2 = queue.shift();
+        let q1 = queue.shift();
+        let q2 = queue.shift();
 
         if (!q1 && !q2) continue;
         if (!q1 || !q2) return false;
@@ -50,7 +50,7 @@ var isSymmetric = function (root) {
 
 //-------------------------------practices
 
-
+// recursive
 function isSymmetric(root) {
 
     const isSy = (left, right) => {
@@ -62,4 +62,24 @@ function isSymmetric(root) {
     }
     
     return isSy(root.left, root.right);
+}
+
+// iterative
+function isSymmetricIterative() {
+    let q = [root.left, root.right];
+while(q.length){
+    let q1= q.shift();
+    let q2 = q.shift();
+
+    if(!q1 && !q2) continue;
+    if(!q1 || !q2) return false;
+
+    if(q1.val !== q2.val) return false;
+
+    q.push(q1.left, q2.right);
+    q.push(q1.right, q2.left);
+    
+}
+
+return true;
 }
