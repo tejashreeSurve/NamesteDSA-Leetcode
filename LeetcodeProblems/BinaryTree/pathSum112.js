@@ -74,23 +74,40 @@ var hasPathSum = function(root, targetSum) {
 
 // top down approach
 function targetSum(root,target) {
-    if (!root) return false;
-    let ans = false;
-
-    const traversal = (curr, sum) => {
-        let newSum = sum + curr.val;
-        if (!curr.left && !curr.right) {
-            if (newSum === target) {
-                ans = ans || true;
-            }
-        }
-        curr.left && traversal(curr.left, newSum);
-        curr.right && traversal(curr.right, newSum);
-
+  if(!root) return false;
+  let ans = false;
+  const traversal=(curr, sum)=>{
+    let newSum = sum+curr.val;
+    if(!curr.left && !curr.right){
+        if(newSum === target) ans = true;
     }
 
-    traversal(root, 0);
+    curr.left && traversal(curr.left, newSum);
+    curr.right && traversal(curr.right, newSum);
+  }
+
+  traversal(root, 0);
 
 
-    return ans;
+return ans;
+}
+
+// bottom up approch
+function targetSumBottom(root,target) {
+  if(!root) return false;
+  let ans = false;
+  const traversal=(curr, sum)=>{
+    let newSum = sum - curr.val;
+    if(!curr.left && !curr.right){
+        if(newSum === 0) ans = true;
+    }
+
+    curr.left && traversal(curr.left, newSum);
+    curr.right && traversal(curr.right, newSum);
+  }
+
+  traversal(root, target);
+
+
+return ans;
 }
