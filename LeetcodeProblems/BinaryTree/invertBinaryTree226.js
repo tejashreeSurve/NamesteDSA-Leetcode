@@ -29,3 +29,15 @@ var invertTree = function(root) {
 
     return root;
 };
+
+//-------------------practices---------
+
+function invertBinaryTree(root) {
+    if (!root) return root;
+
+    [root.left, root.right] = [root.right, root.left];
+    invertBinaryTree(root.left);
+    invertBinaryTree(root.right);
+
+    return root;
+}
