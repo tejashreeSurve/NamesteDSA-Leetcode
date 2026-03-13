@@ -39,3 +39,25 @@ var diameterOfBinaryTree = function(root) {
 
     return diameter;
 };
+
+
+//--------------------------------practices
+
+
+function maxDiameter(root) {
+    let diameter = 0;
+
+    const findDiameter = (curr) => {
+        if (!curr) return 0;
+
+        let left = findDiameter(curr.left);
+        let right = findDiameter(curr.right);
+
+        let currDiameter = left + right;
+        diameter = Math.max(currDiameter, diameter);
+
+        return 1 + Math.max(left, right);
+    }
+    findDiameter(root);
+    return diameter;
+}

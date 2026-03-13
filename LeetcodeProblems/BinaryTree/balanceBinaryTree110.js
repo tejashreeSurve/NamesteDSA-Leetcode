@@ -32,3 +32,24 @@ function isBalanced(root) {
     calcuated(root);
     return ans;
 }
+
+//----------------------------------practices
+
+
+function balanceBinaryTree(root) {
+    let ans = true;
+
+    const calculate = (curr) => {
+        if (!curr) return 0;
+        
+        let left = calculate(curr.left);
+        let right = calculate(curr.right);
+
+        if (Math.abs(left - right) > 1) {
+            ans = false;
+        }
+    }
+
+    calculate(root);
+    return ans;
+}

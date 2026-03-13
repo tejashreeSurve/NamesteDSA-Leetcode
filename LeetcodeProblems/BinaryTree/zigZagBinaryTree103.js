@@ -65,3 +65,37 @@ var zigzagLevelOrder = function(root) {
     recur(root,0);
     return ans ;
 };
+
+
+//-------------------------practices---------------
+
+// I tried by myself iterative way 
+
+var zigzagLevelOrder = function(root) {
+    if(!root) return [];
+
+    let q = [root];
+    let ans = [];
+    while(q.length){
+        let qLength = q.length;
+        let ansLength = ans.length;
+        for(let i = 0;i<qLength;i++){
+            let val = q.shift();
+            val.left && q.push(val.left);
+            val.right && q.push(val.right);
+
+            if(!ans[ansLength]){
+                ans.push([]);
+            }
+
+           if(ansLength % 2 === 0){
+                ans[ansLength].push(val.val);
+            }else{
+                ans[ansLength].unshift(val.val);
+            }
+            
+        }
+    }
+
+    return ans;
+};
