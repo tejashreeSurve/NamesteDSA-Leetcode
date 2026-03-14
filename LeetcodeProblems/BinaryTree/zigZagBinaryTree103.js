@@ -99,3 +99,31 @@ var zigzagLevelOrder = function(root) {
 
     return ans;
 };
+
+// recercive method
+
+function zigZag(root) {
+    if (!root) return [];
+
+    let ans = [];
+    const zigZagRec = (curr, level) => {
+        if (!curr) return;
+
+        if (ans.length === level) {
+            ans.push([]);
+        }
+
+        if (level % 2) {
+            ans[level].unshift(curr.val);
+        } else {
+            ans[level].push(curr.val);
+        }
+
+        zigZagRec(curr.left, level + 1);
+        zigZagRec(curr.right, level + 1);
+    }
+
+    zigZagRec(root, 0);
+
+    return ans;
+}
