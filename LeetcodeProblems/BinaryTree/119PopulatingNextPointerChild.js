@@ -25,8 +25,28 @@ Input: root = []
 Output: []
  
  */
+var connect = function (root) {
+    if (!root) return root;
+    
+    const traversal = (curr) => {
+        if (curr.left) {
+            curr.left.next = curr.right;
+        }
+        if (curr.right && curr.next) {
+            curr.right.next = curr.next.left;
+        }
 
-// tired this
+        curr.left && traversal(curr.left);
+        curr.right && traversal(curr.right);
+    }
+
+    traversal(root);
+
+    return root;
+};
+
+
+//I tired this
 
 var connect = function (root) {
     if (!root) return root;
