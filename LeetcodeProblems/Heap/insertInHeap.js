@@ -35,6 +35,44 @@ class MinHeap{
         this.heapifyUp(lastIndex);
     }
 
+    // val will be delete from top in heap 
+    // so in min heap the smallest value will be delete and then need to perform heapify down
+    delete() {
+        if (this.heap.length < 1) return null;
+        let min = this.heap[0];
+        this.heap[0] = this.heap[this.heap.length - 1];
+        this.heap.pop();
+        this.heapifyDown();
+
+        return min;
+    }
+
+    heapifyDown() {
+        let i = 0;
+        let length = this.heap.length;
+        while (true) {
+            let leftChildIndex = this.getLeftChildIndex(i);
+            let rigthChildIndex = this.getRightChildIndex(i);
+            let minIndex = i; 
+
+            if (leftChildIndex < length && this.heap[minIndex] > this.heap[leftChildIndex]) {
+                minIndex = leftChildIndex;
+            }
+
+            if (rigthChildIndex < length && this.heap[minIndex] > this.heap[rigthChildIndex]) {
+                minIndex = rigthChildIndex;
+            }
+
+
+            if (minIndex !== i) {
+                [this.heap[i], this.heap[minIndex]] = [this.heap[minIndex], this.heap[i]];
+                i = minIndex;
+            } else {
+                break;
+            }
+        }
+    }
+
     heapifyUp(i) {
         while (i > 0) {
             let parentOfI = this.getParentIndex(i);
@@ -46,6 +84,8 @@ class MinHeap{
             }
         }
     }
+
+
 }
 
 let heap = new MinHeap();
