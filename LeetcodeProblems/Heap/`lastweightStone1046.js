@@ -19,22 +19,25 @@ Return the weight of the last remaining stone. If there are no stones left, retu
  
 */
 
-var lastStoneWeight = function(arr) {
+// if we go with brute force algo then we have time complexcity will be 
+// O(n2)
 
+var lastStoneWeight = function(arr) {
     let heap = new MaxPriorityQueue();
 
-    for(let i = 0;i<arr.length;i++){
-        heap.enqueue(arr[i]);
-    }
+    for(let i = 0;i<arr.length;i++){ // O(n)
+        heap.enqueue(arr[i]); // O(log n)
+    } // O(n log n)
 
-    while(heap.size() > 1){
-        let x = heap.dequeue();
-        let y = heap.dequeue();
+    while (heap.size() > 1) { // O(n)
+        // overall O(log n + log n + log n ) = O(3 log n)
+        let x = heap.dequeue(); // O(log n)
+        let y = heap.dequeue(); // O(log n)
         let diff = x-y;
         if(diff > 0){
-            heap.enqueue(diff);
+            heap.enqueue(diff); // O(log n)
         }
-    }
+    } // O(n log n )
 
     return heap.front() || 0;
 
