@@ -22,8 +22,13 @@ Return the weight of the last remaining stone. If there are no stones left, retu
 // if we go with brute force algo then we have time complexcity will be 
 // O(n2)
 
-var lastStoneWeight = function(arr) {
+var lastStoneWeight = function (arr) {
+    // this MaxPriorityQueue is given by leetcode
     let heap = new MaxPriorityQueue();
+
+    // to create array directly we can do this
+    // let heap =  MaxPriorityQueue.fromArray(arr);
+
 
     for(let i = 0;i<arr.length;i++){ // O(n)
         heap.enqueue(arr[i]); // O(log n)
