@@ -15,7 +15,8 @@ Input: nums = [0]
 Output: [[],[0]]
 */
 
-
+// time complexcity - O(n * 2 power n)
+// space complexcity - O(n * 2 power n)
 function subSet(arr) {
     let ans = [];
     const brackTrack = (path, start) => {
