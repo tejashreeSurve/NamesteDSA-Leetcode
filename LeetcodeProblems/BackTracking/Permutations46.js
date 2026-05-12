@@ -16,7 +16,8 @@ Input: nums = [1]
 Output: [[1]]
  
 */
-
+// time complexity O(n*n!) because we are generating n! permutations and each permutation takes O(n) time to create a copy of the path array
+// space complexity O(n) for the path array and O(n!) for the result array, but we can ignore the space taken by the result array as it is required to store the output
 var permute = function(nums) {
     let result = [];
     const backtracking = (path)=>{
