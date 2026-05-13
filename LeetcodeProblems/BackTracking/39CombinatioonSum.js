@@ -25,21 +25,26 @@ Input: candidates = [2], target = 1
 Output: []
  */
 
-var combinationSum = function(arr, target) {
-    const result = [];
+// time complexcity O( n ^ (target/min)) where min is the smallest number in the array
+// becuase let we we have target = 200 and min = 2 then we can have 100 numbers in the combination (depth of the tree) and we have n options(array length) for each number so n^100
+// so time complexcity is O( n ^ (target/min)) and
+// space complexcity is O(target/min) because of the depth of the tree
+// becuase target/min number of function will be called in the stack at the same time and each function call will have a path array of size target/min so space complexcity is O(target/min)
+var combinationSum = function (arr, target) {
+  const result = [];
 
-    const backTracking = (reminingSum, path, start)=>{
-        if(reminingSum === 0) result.push([...path]);
-        if(reminingSum <= 0) return;
+  const backTracking = (reminingSum, path, start) => {
+    if (reminingSum === 0) result.push([...path]);
+    if (reminingSum <= 0) return;
 
-        for (let i = start; i< arr.length;i++ ){
-            path.push(arr[i]);
-            backTracking(reminingSum-arr[i], path, i);
-            path.pop();
-        }
+    for (let i = start; i < arr.length; i++) {
+      path.push(arr[i]);
+      backTracking(reminingSum - arr[i], path, i);
+      path.pop();
     }
+  };
 
-    backTracking(target, [],0);
+  backTracking(target, [], 0);
 
-    return result;
+  return result;
 };
