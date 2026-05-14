@@ -28,6 +28,11 @@ Output:
 ]
  */
 
+// time complexcity O( n ^ (target/min)) where min is the smallest number in the array
+// becuase let we we have target = 200 and min = 2 then we can have 100 numbers in the combination (depth of the tree) and we have n options(array length) for each number so n^100
+// so time complexcity is O( n ^ (target/min)) and
+// space complexcity is O(target/min) because of the depth of the tree
+// becuase target/min number of function will be called in the stack at the same time and each function call will have a path array of size target/min so space complexcity is O(target/min)
 var combinationSum2 = function(arr, target) {
     const result = [];
     arr.sort((a,b)=> a - b);
