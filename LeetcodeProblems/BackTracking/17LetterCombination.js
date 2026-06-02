@@ -16,6 +16,17 @@ Output: ["a","b","c"]
 
 */
 
+// time complexcity O(3^m * 4^n) where m is the number of digits that map to 3 letters (2, 3, 4, 5, 6, 8) and
+//  n is the number of digits that map to 4 letters (7, 9) because for each digit we have to generate all combinations
+// of the letters it maps to and we have m digits that map to 3 letters and n digits that map to 4 letters so we have 3
+//  options for each of the m digits and 4 options for each of the n digits so we have 3^m * 4^n combinations in total
+
+
+// space complexcity is O(m + n) because of the path array and the recursion stack, where m is the number of digits that 
+// map to 3 letters and n is the number of digits that map to 4 letters because in the worst case we can have all digits 
+// that map to 3 letters or all digits that map to 4 letters so we have m + n digits in total and we can have at most m + n 
+// function calls in the stack at the same time and each function call will have a path array of size m + n so space
+//  complexcity is O(m + n)
 
 var letterCombinations = function (digits) {
     const map = {
